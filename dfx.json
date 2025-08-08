@@ -1,0 +1,28 @@
+{
+  "canisters": {
+    "registry": {
+      "main": "backend/registry.mo",
+      "type": "motoko",
+      "args": "--enhanced-orthogonal-persistence"
+    },
+    "bucket": {
+      "main": "backend/bucket.mo",
+      "type": "motoko",
+      "args": "--enhanced-orthogonal-persistence"
+    },
+    "frontend": {
+      "dependencies": ["registry", "bucket"],
+      "frontend": {
+        "entrypoint": "frontend/index.html"
+      },
+      "source": ["frontend/dist"],
+      "type": "assets"
+    }
+  },
+  "output_env_file": ".env",
+  "defaults": {
+    "build": {
+      "packtool": "mops sources"
+    }
+  }
+}
